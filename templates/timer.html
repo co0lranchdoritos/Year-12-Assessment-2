@@ -1,54 +1,74 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timer</title>
-</head>
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Timer</title>
+        <link rel="icon" type="image/png" href="assets/favicon.png"
+        <link rel="stylesheet" href="styles.css">
+    </head>
 <body>
 
-<div class="countdown-timer">
-    <div class="timer">
-        <div class="time-box">
-            <span class="number" id="days">00</span>
-            <span class="label">Days</span>
-        </div>
-        <div class="time-box">
-            <span class="number" id="hours">00</span>
-            <span class="label">Hours</span>
-        </div>
-        <div class="time-box">
-            <span class="number" id="minutes">00</span>
-            <span class="label">Minutes</span>
-        </div>
-        <div class="time-box">
-            <span class="number" id="seconds">00</span>
-            <span class="label">Seconds</span>
+    <div class="container">
+        <h1 class="title">Study Timer</h1>
+
+        <hr>
+
+        <p class="timer" id="timer"25:00</p>
+
+        <div class="button-wrapper">
+            <button id ="start">Start</button>
+            <button id ="stop">Stop</button>
+            <button id="reset">Reset</button>
+
         </div>
     </div>
-</div>
 
-<script>
-    const targetDate = new Date("").getTime();
+    <script>
+        const start = doccument.getElementById("start");
+        const stop = doccument.getElementById("stop");
+        const reset = doccument.getElementById("reset");
+        const timer = doccument.getElementById("timer");
 
-    const interval = setInterval(function() {
-        const now = new Date().getTime();
-        const difference = targetDate - now;
+        let timeleft = 1500;
+        let interval;
 
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        const updateTimer = () => {
+            const minutes = Math.floor(timeleft / 60);
+            const seconds = timeleft % 60;
 
-        document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-        document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-        document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-        document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            timer.innerHTML = ${minutes.toString().padStart(2, "0")}
+            :
+            ${seconds.toString().padStart(2, "0")};
+        };
 
-        if (difference < 0) {
-            clearInterval(interval);
-            document.querySelector(".timer").innerHTML = "EXPIRED";
+        const startTimer = () => {
+            interva; = setInterval(() => {
+                timerLeft--;
+                updateTimer();
+
+                if(timeLeft === 0){
+                    clearInterval(interval);
+                    alert("Times up!")
+                    timeLeft = 1500;
+                    updateTimer();
+                }
+            }, 1000);
         }
-    }, 1000);
-</script>
+
+        const stopTimer = () => clearInterval(interval);
+
+        const resetTimer = () => {
+            clearInterval(interval);
+            timeLeft = 1500;
+            updateTimer();
+        }
+
+        start.addEventListener("click", startTimer);
+        stop.addEventListener('click', stopTimer);
+        reset.addEventListener("click", resetTimer);
+
+    </script>
 
 </body>
 </html>
