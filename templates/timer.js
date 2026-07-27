@@ -1,3 +1,4 @@
+console.log("Timer script loaded successfully.");
 const start = document.getElementById("start");
 const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
@@ -46,5 +47,3 @@ updateTimer();
 start.addEventListener("click", startTimer);
 stop.addEventListener('click', stopTimer);
 reset.addEventListener("click", resetTimer);
-
-console.log("Timer script loaded successfully.");
