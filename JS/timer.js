@@ -1,7 +1,7 @@
-const start = doccument.getElementById("start");
-const stop = doccument.getElementById("stop");
-const reset = doccument.getElementById("reset");
-const timer = doccument.getElementById("timer");
+const start = document.getElementById("start");
+const stop = document.getElementById("stop");
+const reset = document.getElementById("reset");
+const timer = document.getElementById("timer");
 
 let timeLeft = 1500;
 let interval;
@@ -14,26 +14,37 @@ const updateTimer = () => {
  };
 
  const startTimer = () => {
+    if (interval) return;
+
     interval = setInterval(() => {
         timeLeft--;
         updateTimer();
 
-        if (timeLeft === 0){
+        if (timeLeft <= 0) {
             clearInterval(interval);
+            interval = null;
             timeLeft = 1500;
             updateTimer();
         }
     }, 1000);
-}
+};
 
-const stopTimer = () => clearInterval(interval);
+const stopTimer = () => {
+    clearInterval(interval);
+    interval = null;
+};
 
 const resetTimer = () => {
     clearInterval(interval);
+    interval = null;
     timeLeft = 1500;
     updateTimer();
 }
 
+updateTimer();
+
 start.addEventListener("click", startTimer);
 stop.addEventListener('click', stopTimer);
 reset.addEventListener("click", resetTimer);
+
+console.log("Timer script loaded successfully.");
