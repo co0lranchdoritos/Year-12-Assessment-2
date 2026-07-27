@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head> 
-        <meta charset="UFT-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Timer</title>
-        <link rel="icon" type="image/png" href="assets/favicon.png"
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<head> 
+    <meta charset="UFT-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png"
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
 
     <div class="container">
@@ -14,7 +14,7 @@
 
         <hr>
 
-        <p class="timer" id="timer"25:00</p>
+        <p class="timer" id="timer"> 25:00 </p>
 
         <div class="button-wrapper">
             <button id ="start">Start</button>
@@ -24,51 +24,6 @@
         </div>
     </div>
 
-    <script>
-        const start = doccument.getElementById("start");
-        const stop = doccument.getElementById("stop");
-        const reset = doccument.getElementById("reset");
-        const timer = doccument.getElementById("timer");
-
-        let timeleft = 1500;
-        let interval;
-
-        const updateTimer = () => {
-            const minutes = Math.floor(timeleft / 60);
-            const seconds = timeleft % 60;
-
-            timer.innerHTML = ${minutes.toString().padStart(2, "0")}
-            :
-            ${seconds.toString().padStart(2, "0")};
-        };
-
-        const startTimer = () => {
-            interva; = setInterval(() => {
-                timerLeft--;
-                updateTimer();
-
-                if(timeLeft === 0){
-                    clearInterval(interval);
-                    alert("Times up!")
-                    timeLeft = 1500;
-                    updateTimer();
-                }
-            }, 1000);
-        }
-
-        const stopTimer = () => clearInterval(interval);
-
-        const resetTimer = () => {
-            clearInterval(interval);
-            timeLeft = 1500;
-            updateTimer();
-        }
-
-        start.addEventListener("click", startTimer);
-        stop.addEventListener('click', stopTimer);
-        reset.addEventListener("click", resetTimer);
-
-    </script>
-
+    <script src="timer.js"></script>
 </body>
 </html>
