@@ -16,7 +16,14 @@
 
         <hr>
 
-        <p class="timer" id="timer"> 25:00 </p>
+        <div class="time-inputs">
+            <input type="number" id="hours" min="0" value="0">
+            <input type="number" id="minutes" min="0" max="59" value="25">
+            <input type="number" id="seconds" min="0" max="59" value="0">
+        </div>
+
+
+        <p class="timer" id="timer"> 00:25:00 </p>
 
         <div class="button-wrapper">
             <button id="start">Start</button>
