@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 
 
-app = Flask(__name__, static_folder="static")
+app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Year-12-Assessment-2.db"  
@@ -75,9 +75,12 @@ def login():
 def timer():
     return render_template('timer.html')
 
+
+
 @app.route("/profile")
 def profile():
     return render_template('profile.html')
+
 
 if __name__ == "__main__":
     with app.app_context():
