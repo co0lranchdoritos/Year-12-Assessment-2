@@ -47,9 +47,11 @@ const resetTimer = () => {
     clearInterval(interval);
     interval = null;
     setTimer();
+    updateTimer();
 }
 
 setTimer();
+updateTimer();
 
 [hoursInput, minutesInput, secondsInput].forEach(input => { input.addEventListener("change", () => {
     if (!interval) {
