@@ -76,12 +76,6 @@ def timer():
     return render_template('timer.html')
 
 
-
-@app.route("/profile")
-def profile():
-    return render_template('profile.html')
-
-
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
