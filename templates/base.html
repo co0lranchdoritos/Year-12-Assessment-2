@@ -8,10 +8,14 @@
         <link rel="manifest" href='/static/manifest.json'>
     </head>
 
+    
+
         <h1>{% block heading%}Study Time tracker{% endblock %}</h1>
         <main>
             {% block content %}{% endblock %}
         </main>
+        
+        <body style="background-color: rgb(110, 153, 166);"></body>
         
 <!-- JavaScript -->
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>
